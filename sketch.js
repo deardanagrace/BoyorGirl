@@ -77,7 +77,7 @@ function setup() {
     imageMode(CENTER);
     rectMode(CENTER);
     //simple timer time in ms
-    simpleTimer = new Timer(10000);
+    // simpleTimer = new Timer(10000);
     //font and text setups
     textSize(25);
     textFont(myFont);
@@ -165,15 +165,16 @@ drawFamiliar = function() {
 }
 drawTopicSelect = function() {
         //blue text title
+        noStroke();
         fill(blueCol);
         textSize(100);
         text("select a topic", width / 2, gTextOffset);
         //green text buttons
         fill(greenCol);
         textSize(37);
-        text("range of gender identities", L_wTextOffset, T_hTextOffset - 200, 400, 100);
-        text("sex assigned at birth vs. gender identity", L_wTextOffset, B_hTextOffset - 200, 400, 100);
-        text("puberty and trans youth", R_wTextOffset, height / 2, 280, 200);
+        text("a. range of gender identities", L_wTextOffset, T_hTextOffset - 200, 400, 100);
+        text("s. sex assigned at birth vs. gender identity", L_wTextOffset, B_hTextOffset - 200, 400, 100);
+        text("d. puberty and trans youth", R_wTextOffset, height / 2, 280, 200);
     }
     /********************** PATH 1: RANGE OF GENDER IDENTITIES **********************************/
 drawGenderIdentities = function() {
@@ -185,8 +186,8 @@ drawGenderIdentities = function() {
         fill(darkgreyCol);
         textSize(25);
         text("When you're born, your sex is assigned in a medical way. But the sex listed on your birth certificate may not necessarily match your gender identity.", L_wTextOffset, T_hTextOffset, 400, 600);
-        text("Gender identity is a person's inner experience of who they are in terms of gender.", L_wTextOffset, B_hTextOffset, 400, 600);
-        text("Their deep personal sense of being male, female, a blend of both or neither.", R_wTextOffset, T_hTextOffset, 400, 600);
+        text("Gender identity is a person's inner experience of who they are in terms of gender.", R_wTextOffset, T_hTextOffset, 400, 600);
+        text("Their deep personal sense of being male, female, a blend of both or neither.", L_wTextOffset, B_hTextOffset, 400, 600);
         text("While many people have a gender identity that's the same as their assigned birth sex, a female or male, that's not always the case because...", R_wTextOffset, B_hTextOffset, 400, 600);
     }
     //text stating gender is on a spectrum 
@@ -228,7 +229,7 @@ drawTransgenderTransformation = function() {
     fill(darkgreyCol);
     textSize(25);
     noStroke();
-    text("Some examples include, transgender, which means a person whos gender identity is not consistent with their assigned birth sex.", L_wTextOffset, T_hTextOffset, 400, 600);
+    text("Some examples include, transgender, which means a person whos gender identity is not consistent with their assigned birth sex.", L_wTextOffset, T_hTextOffset, 400, 300);
 }
 
 //non binary definition and transformation example
@@ -242,11 +243,11 @@ drawGenderQueerTransformation = function() {
     //moving the circle
     circX += circSpeedX;
     // circle features
-    noStroke();
-    ellipse(circX, height / 2, 500, 500);
     //mapping function for the alpha value of the cicle
     a = map(circX, 0, width, 0, 255);
     fill(253, 114, 204, a);
+    noStroke();
+    ellipse(circX, height / 2, 500, 500);
     // moving conditions for the circle - bounce back
     if (circX >= width - 150 || circX <= 50) {
         circSpeedX = circSpeedX * -1;
@@ -266,18 +267,18 @@ drawStraightorGay = function() {
 }
 drawUnderstanding = function() {
     textSize(25);
-    fill(darkgreyCol);
+    fill(greenCol);
     text("NO! Gender identity has to do with the way you feel about yourself.", L_wTextOffset, T_hTextOffset, 400, 200);
-    text("Sexual orientation is based on the way you feel towards people you may or may not be attracted to", L_wTextOffset, B_hTextOffset, 400, 200);
-    text("You do not have to fully understand someone to respect them.", R_wTextOffset, T_hTextOffset, 400, 200);
+    text("Sexual orientation is based on the way you feel towards people you may or may not be attracted to", R_wTextOffset, T_hTextOffset, 400, 200);
+    text("You do not have to fully understand someone to respect them.", L_wTextOffset, B_hTextOffset, 400, 200);
     text("But you can take some steps to respect them...", R_wTextOffset, B_hTextOffset, 400, 200);
 }
 drawRespect = function() {
         fill(blueCol);
         textSize(25);
         text("To start, try not to make assumptions about a person's gender", L_wTextOffset, T_hTextOffset, 400, 159);
-        text("Use the name and pronouns that they ask you to.", L_wTextOffset, B_hTextOffset, 400, 159);
-        text("Above all, be a friend or ally for people", R_wTextOffset, T_hTextOffset, 400, 159);
+        text("Use the name and pronouns that they ask you to.", R_wTextOffset, T_hTextOffset, 400, 159);
+        text("Above all, be a friend or ally for people", L_wTextOffset, B_hTextOffset, 400, 159);
         //to go back button
         fill(greenCol);
         text("go back", 100, 100);
@@ -291,10 +292,10 @@ drawVersusIntro = function() {
     textSize(25);
     fill(darkgreyCol);
     text("'Is it a boy or a girl ? is often the first question people ask when a baby is born'", L_wTextOffset, T_hTextOffset, 384, 200)
-    text("The response to this question is most often determined by the external genitals of the baby", L_wTextOffset, B_hTextOffset, 400, 200);
-    text("Most people, including many in the medical community, see only two possibilities", R_wTextOffset, T_hTextOffset, 337, 200);
+    text("The response to this question is most often determined by the external genitals of the baby", R_wTextOffset, T_hTextOffset, 400, 200);
+    text("Most people, including many in the medical community, see only two possibilities", L_wTextOffset, B_hTextOffset-150, 337, 200);
     fill(greenCol);
-    text("Girl or Boy?", R_wTextOffset, B_hTextOffset, 169, 169);
+    text("Girl or Boy?", L_wTextOffset, B_hTextOffset-30, 169, 169);
 }
 drawSexDefinition = function() {
     fill(darkgreyCol);
@@ -309,13 +310,13 @@ drawGenderIndentity = function() {
     textSize(25);
     fill(darkgreyCol);
     text("Gender identity is how a person identifies, or how they see themselves.", L_wTextOffset, T_hTextOffset, 384, 200);
-    fill(blueCol);
+    fill(pinkCol);
     text("One's internal sense of being male, female, both of these, neither of these, or another gender altogether is called gender identity", R_wTextOffset, T_hTextOffset, 400, 200);
 }
 drawCisgender = function() {
     fill(greenCol);
     textSize(25);
-    text("click to interact", width / 2, gTextOffset);
+    text("click to interact + press f to move on", width / 2, gTextOffset);
     textSize(25);
     fill(darkgreyCol);
     text("Most people whose sex assigned at birth is female grow up to identity as female", L_wTextOffset, T_hTextOffset - 200, 384, 300);
@@ -413,13 +414,13 @@ drawCisgender = function() {
 drawTransgender = function() {
     fill(greenCol);
     textSize(25);
-    text("click to interact", width / 2, gTextOffset);
+    text("click to interact + press g to move on", width / 2, gTextOffset);
     fill(darkgreyCol);
     textSize(24);
     text("For some people, their sex assigned at birth, girl or boy, doesn't match their gender identity...", L_wTextOffset, T_hTextOffset - 300, 384, 200);
-    text("or their internal sense of who they know themselves to be.", L_wTextOffset, B_hTextOffset - 100, 300, 200);
+    text("or their internal sense of who they know themselves to be.", R_wTextOffset, T_hTextOffset - 300, 300, 200);
     fill(blueCol);
-    text("Transgender is a gender identity that may be used by a man or woman who was not assigned their gender at birth", R_wTextOffset, T_hTextOffset - 300, 400, 200);
+    text("Transgender is a gender identity that may be used by a man or woman who was not assigned their gender at birth", L_wTextOffset, B_hTextOffset - 100, 400, 200);
     //funky shape drawing
     noStroke();
     //start drawing cube
@@ -533,8 +534,8 @@ drawVersusEnd = function() {
         fill(blueCol);
         textSize(25);
         text("While there are many different labels used to describe gender identity, you don't need to label yourself or share your gender identity if you don't want to!", L_wTextOffset, T_hTextOffset - 200, 384, 200);
-        text("You may feel unsure or be uncomfortable sharing this information bout yourself with others", L_wTextOffset, B_hTextOffset - 200, 484, 200);
-        text("Trust yourself to know what words feel right for you and when to share that information with friends and family", R_wTextOffset - 60, T_hTextOffset, 517, 200);
+        text("You may feel unsure or be uncomfortable sharing this information bout yourself with others", R_wTextOffset - 60, T_hTextOffset, 484, 200);
+        text("Trust yourself to know what words feel right for you and when to share that information with friends and family", L_wTextOffset, B_hTextOffset - 200, 517, 200);
         //to go back button
         fill(greenCol);
         text("go back", 100, 100);
@@ -548,23 +549,23 @@ drawPuberty = function() {
     textSize(24);
     fill(darkgreyCol);
     text("A person who is transgender is someone who's internal sense of their gender, being a boy, girl, or something else, does not match their physically body.", L_wTextOffset, T_hTextOffset - 100, 424, 193);
-    text("People who feel this way sometimes feel anxious when they being to reach puberty and their body starts to change in a way that doesn't match their internal sense of their gender.", L_wTextOffset, B_hTextOffset - 200, 400, 225);
-    text("The feeling of wanting to explore how you feel about your gender is totally normal", R_wTextOffset, T_hTextOffset - 100, 369, 169);
+    text("People who feel this way sometimes feel anxious when they being to reach puberty and their body starts to change in a way that doesn't match their internal sense of their gender.", R_wTextOffset, T_hTextOffset - 100, 400, 225);
+    text("The feeling of wanting to explore how you feel about your gender is totally normal", L_wTextOffset, B_hTextOffset - 200, 369, 169);
     text("Before your body starts to change, it's important to talk with a parent, counselor, therapist or doctor about the feeling you have regarding you gender", R_wTextOffset, B_hTextOffset - 200, 360, 220);
 }
 drawCouseling = function() {
         //information text
         fill(greenCol);
+        noStroke();
         textSize(25);
-        text("click to interact", width / 2, gTextOffset);
+        text("click to interact + press h to move on", width / 2, gTextOffset);
         fill(darkgreyCol);
         textSize(25);
-        noStroke();
         text("After some discussion and counseling you may be referred to an endocrinologist", L_wTextOffset, T_hTextOffset, 400, 190);
-        text("Puberty blockers are medication that will stop you body from changing . They are usually given as an injection or implants", R_wTextOffset, T_hTextOffset, 380, 193);
-        text("They blocks the production of hormones to stop or delay the physical changes of puberty", R_wTextOffset, B_hTextOffset, 380, 223);
-        fill(pinkCol);
-        text("Endocrinologist specialize in hormones and their the most likely to prescribe puberty blockers for someone who wants them", L_wTextOffset, B_hTextOffset, 400, 255);
+        text("Puberty blockers are medication that will stop you body from changing . They are usually given as an injection or implants", R_wTextOffset, B_hTextOffset - 150, 380, 193);
+        text("They blocks the production of hormones to stop or delay the physical changes of puberty", R_wTextOffset, T_hTextOffset, 380, 223);
+        fill(blueCol);
+        text("Endocrinologist specialize in hormones and their the most likely to prescribe puberty blockers for someone who wants them", L_wTextOffset, B_hTextOffset - 150, 400, 255);
         //forloop displaying a new circle at every draw loop
         for (var i = 0; i < growCirc.length; i++) {
             growCirc[i].update();
@@ -611,120 +612,66 @@ drawPubertyEnd = function() {
     }
     //nav
 function keyTyped() {
-    if (drawFunction === drawLanding) {
-        if (key === 'q') {
-            drawFunction = drawOutlineAlign;
-        }
-    }
-
-    if (drawFunction === drawOutlineAlign) {
-        if (key === 'w') {
-            drawFunction = drawFamiliar;
-        }
-    }
-
-    if (drawFunction === drawFamiliar) {
-        if (key === 'e') {
-            drawFunction = drawTopicSelect;
-        }
-    }
     if (drawFunction === drawTopicSelect) {
-        if (key === 'r') {
+        if (key === 'a') {
             drawFunction = drawGenderIdentities;
-        } else if (key === 't') {
+        } else if (key === 's') {
             drawFunction = drawVersusIntro;
-        } else if (key == 'y') {
+        } else if (key == 'd') {
             drawFunction = drawPuberty;
         }
     }
-    //part 1
-    if (drawFunction === drawGenderIdentities) {
-        if (key === 'u') {
-            drawFunction = drawSpectrum;
-        }
-    }
-
-    if (drawFunction === drawSpectrum) {
-        if (key === 'i') {
-            drawFunction = drawTransgenderTransformation;
-        }
-    }
-    if (drawFunction === drawTransgenderTransformation) {
-        if (key === 'o') {
-            drawFunction = drawNonBinaryTransformation;
-        }
-    }
-    if (drawFunction === drawNonBinaryTransformation) {
-        if (key === 'p') {
-            drawFunction = drawGenderQueerTransformation;
-        }
-    }
-    if (drawFunction === drawGenderQueerTransformation) {
-        if (key === 'a') {
-            drawFunction = drawStraightorGay;
-        }
-    }
-
-    if (drawFunction === drawUnderstanding) {
-        if (key === 'd') {
-            drawFunction = drawRespect;
-        }
-    }
-    //part 2
-    if (drawFunction === drawVersusIntro) {
-        if (key === 'f') {
-            drawFunction = drawSexDefinition;
-        }
-    }
-    if (drawFunction === drawSexDefinition) {
-        if (key === 'g') {
-            drawFunction = drawGenderIndentity;
-        }
-    }
-    if (drawFunction === drawGenderIndentity) {
-        if (key === 'h') {
-            drawFunction = drawCisgender;
-        }
-    }
     if (drawFunction === drawCisgender) {
-        if (key === 'j') {
+        if (key === 'f') {
             drawFunction = drawTransgender;
         }
     }
     if (drawFunction === drawTransgender) {
-        if (key === 'k') {
+        if (key === 'g') {
             drawFunction = drawGenderQueerWave;
         }
     }
-    if (drawFunction === drawGenderQueerWave) {
-        if (key === 'l') {
-            drawFunction = drawVersusEnd;
-        }
-    }
-    //part 3
-    if (drawFunction === drawPuberty) {
-        if (key === 'z') {
-            drawFunction = drawCouseling;
-        }
-    }
     if (drawFunction === drawCouseling) {
-        if (key === 'x') {
+        if (key === 'h') {
             drawFunction = drawPubertyEnd;
         }
     }
 }
 
 function mouseClicked() {
-    if (drawFunction === drawStraightorGay) {
-        drawFunction = drawUnderstanding;
-    } else if (drawFunction === drawCouseling) { //might need to delete if does not work
-        growCirc.push(new Circle(mouseX, mouseY, random(7, 15)));
-    } else if (drawFunction === drawVersusEnd) {
+    if (drawFunction === drawLanding) {
+        drawFunction = drawOutlineAlign;
+    } else if (drawFunction === drawOutlineAlign) {
+        drawFunction = drawFamiliar;
+    } else if (drawFunction === drawFamiliar) {
         drawFunction = drawTopicSelect;
+    }
+
+    //*********part 1****************//
+    else if (drawFunction === drawGenderIdentities) {
+        drawFunction = drawSpectrum;
+    } else if (drawFunction === drawSpectrum) {
+        drawFunction = drawTransgenderTransformation;
+    } else if (drawFunction === drawTransgenderTransformation) {
+        drawFunction = drawNonBinaryTransformation;
+    } else if (drawFunction === drawNonBinaryTransformation) {
+        drawFunction = drawGenderQueerTransformation;
+    } else if (drawFunction === drawGenderQueerTransformation) {
+        drawFunction = drawStraightorGay;
+    } else if (drawFunction === drawStraightorGay) {
+        drawFunction = drawUnderstanding;
+    } else if (drawFunction === drawUnderstanding) {
+        drawFunction = drawRespect;
     } else if (drawFunction === drawRespect) {
         drawFunction = drawTopicSelect;
-    } else if (drawFunction === drawPubertyEnd) {
-        drawFunction = drawTopicSelect;
+    }
+    //**************part 2 ************************//
+    else if (drawFunction === drawVersusIntro) {
+        drawFunction = drawSexDefinition;
+    } else if (drawFunction === drawSexDefinition) {
+        drawFunction = drawGenderIndentity;
+    } else if (drawFunction === drawGenderIndentity) {
+        drawFunction = drawCisgender;
     } else if (drawFunction === drawCisgender) {
         j = j + 1;
         if (j === 6) {
@@ -735,6 +682,17 @@ function mouseClicked() {
         if (k === 6) {
             k = 0;
         }
+    } else if (drawFunction === drawGenderQueerWave) {
+        drawFunction = drawVersusEnd;
+    } else if (drawFunction === drawVersusEnd) {
+        drawFunction = drawTopicSelect;
     }
-
+    //*****************part 3 ************************//
+    else if (drawFunction === drawPuberty) {
+        drawFunction = drawCouseling;
+    } else if (drawFunction === drawCouseling) {
+        growCirc.push(new Circle(mouseX, mouseY, random(7, 15)));
+    } else if (drawFunction === drawPubertyEnd) {
+        drawFunction = drawTopicSelect;
+    }
 }
